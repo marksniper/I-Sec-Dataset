@@ -7,4 +7,4 @@ setup(name='training',
       url='https://isec.unige.ch/',
       platforms=['any'],
       install_requires=['joblib', 'keras', 'scikit-learn==0.23.1', 'xgboost', 'tensorflow', 'watchdog', 'pandas',
-                        'protobuf==3.12.2', 'six==1.15.0', 'numpy=1.19.2','h5py=2.10.0'])
+                        'protobuf==3.12.2', 'six==1.15.0', 'numpy==1.19.2','h5py==2.10.0'])
