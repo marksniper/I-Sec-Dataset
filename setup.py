@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='ncdbad-predictor',
+setup(name='training',
       version="0.1",
       author='Benedetto Marco Serinelli',
       author_email='Benedetto.Serinelli@unige.ch',
