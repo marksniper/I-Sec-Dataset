@@ -1,3 +1,4 @@
+import io
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -23,6 +24,19 @@ def train_and_test(dataset, data):
     Path("savemodel").mkdir(parents=True, exist_ok=True)
     f = open('result/' + dataset + '_output.txt', 'w')
     sys.stdout = f
+    Path("exploratory").mkdir(parents=True, exist_ok=True)
+
+    with open('exploratory/' + dataset + '_output.txt', "w",
+              encoding="utf-8") as f:
+        f.write("Label \n")
+        f.write(str(data['Label'].value_counts().values))
+        f.write("\nRows \n")
+        f.write(str(data.shape[0]))
+        f.write(" \nCoulmns \n")
+        f.write(str(len(data.columns)))
+        f.write("\n")
+        f.write(str(data.columns))
+
     for column in data.columns:
         if data[column].dtype == type(object):
             le = LabelEncoder()
@@ -75,26 +89,26 @@ def train_and_test(dataset, data):
 
 if __name__ == "__main__":
     # Set the correct data set path
-    data = pd.read_csv('../../dataset evaluation/new_KDD.csv', delimiter=',')
-    # pass the data set name
-    train_and_test('keras_new_KDD', data)
-    # data = pd.read_csv('../../dataset evaluation/new_NSL_KDD.csv', delimiter=',')
-    # train_and_test('keras_new_NSL_KDD', data)
-    # data = pd.read_csv('../../dataset evaluation/Friday-23-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Friday-23-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Friday-02-03-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Friday-02-03-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Friday-16-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Friday-16-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Thursday-01-03-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Thursday-01-03-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Thursday-15-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Thursday-15-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Thursday-22-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Thursday-22-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Wednesday-14-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Wednesday-14-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Wednesday-21-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Wednesday-21-02-2018', data)
-    # data = pd.read_csv('../../dataset evaluation/Wednesday-28-02-2018_clean.csv', delimiter=',')
-    # train_and_test('keras_Wednesday-28-02-2018', data)
+    data = pd.read_csv('../dos_fin.csv', delimiter=',')
+    train_and_test('keras_dos_fin', data)
+    data = pd.read_csv('../dos_rpau.csv', delimiter=',')
+    train_and_test('keras_dos_rpau', data)
+    data = pd.read_csv('../dos_scanning_attacks.csv', delimiter=',')
+    train_and_test('keras_dos_scanning_attacks', data)
+    data = pd.read_csv('../dos_sync.csv', delimiter=',')
+    train_and_test('keras_dos_sync', data)
+    data = pd.read_csv('../scanning_nmap1.csv', delimiter=',')
+    train_and_test('keras_scanning_nmap1', data)
+    data = pd.read_csv('../scanning_nmap2.csv', delimiter=',')
+    train_and_test('keras_scanning_nmap2', data)
+    data = pd.read_csv('../scanning_nmap3.csv', delimiter=',')
+    train_and_test('keras_scanning_nmap3', data)
+    data = pd.read_csv('../dos_rpau.csv', delimiter=',')
+    train_and_test('keras_dos_rpau.csv', data)
+    data = pd.read_csv('../dos_rpau.csv', delimiter=',')
+    train_and_test('keras_dos_rpau.csv', data)
+    data = pd.read_csv('../dos_rpau.csv', delimiter=',')
+    train_and_test('keras_dos_rpau.csv', data)
+
+
+
